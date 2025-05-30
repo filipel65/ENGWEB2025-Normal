@@ -1,0 +1,53 @@
+extends layout
+
+block content
+  .w3-container
+    header.w3-container.w3-teal.w3-margin-bottom
+      h1= tit
+
+    .w3-card-4.w3-margin-bottom
+      header.w3-container.w3-light-grey
+        h3 Edições em que participou:
+      .w3-container.w3-padding
+        if participatedEditions && participatedEditions.length > 0
+          table.w3-table-all.w3-striped.w3-hoverable
+            thead
+              tr.w3-teal
+                th ID da edição
+                th Ano
+                th Música
+                th Intérprete
+                th Venceu?
+            tbody
+              each ed in participatedEditions
+                tr
+                  td
+                    a(href=`/${ed.id_edicao}`)= ed.id_edicao 
+                  td= ed.ano
+                  td= ed.musica_nome
+                  td= ed.interprete_nome
+                  td= ed.venceu ? "Sim ✅" : "Não ❌"
+        else
+          p.w3-text-grey Este país não tem registo de participações.
+
+    .w3-card-4.w3-margin-bottom
+      header.w3-container.w3-light-grey
+        h3 Edições que organizou:
+      .w3-container.w3-padding
+        if organizedEditions && organizedEditions.length > 0
+          table.w3-table-all.w3-striped.w3-hoverable
+            thead
+              tr.w3-teal
+                th ID da edição
+                th Ano
+            tbody
+              each ed in organizedEditions
+                tr
+                  td
+                    a(href=`/${ed.id_edicao}`)= ed.id_edicao
+                  td= ed.ano
+        else
+          p.w3-text-grey Este país não tem registo de ter organizado edições.
+    
+    footer.w3-container.w3-padding-16
+      a.w3-button.w3-teal.w3-hover-dark-grey(href="/") voltar

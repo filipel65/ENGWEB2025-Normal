@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  for book in books
+    p= book.title
+    p= book.author
+    p= book.coverImg
+    p= book.price
+    p= book._id
