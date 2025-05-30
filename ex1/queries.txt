@@ -1,4 +1,4 @@
-// 1. Quantos registos estão na base de dados?
+// 1. Quantos registos estão na base de dados
 db.edicoes.countDocuments({})
 
 // 2. Quantas edições têm "Ireland" como vencedor?
